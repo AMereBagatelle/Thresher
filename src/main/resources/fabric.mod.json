@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "thresher",
+  "version": "${version}",
+  "name": "Thresher",
+  "description": "Get rid of those not-bug bug reports",
+  "authors": [
+    "AMereBagatelle"
+  ],
+  "contact": {
+    "homepage": "amerebagatelle.github.io",
+    "sources": "https://github.com/AMereBagatelle/Thresher"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/thresher/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "amerebagatelle.github.io.thresher.Thresher"
+    ]
+  },
+  "mixins": [
+    "thresher.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.8.2+build.194",
+    "fabric": "*",
+    "minecraft": "1.15.2"
+  }
+}
