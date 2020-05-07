@@ -3,6 +3,7 @@
   "package": "amerebagatelle.github.io.thresher.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "MinecraftClientMixin"
   ],
   "client": [
   ],

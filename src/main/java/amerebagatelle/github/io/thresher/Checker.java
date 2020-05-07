@@ -1,12 +1,22 @@
 package amerebagatelle.github.io.thresher;
 
+import amerebagatelle.github.io.thresher.util.ThresherException;
+
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
+import java.util.ArrayList;
 
 public class Checker {
     public long maxMemory;
 
-    public void checkMemory() {
+    public void checkValues() throws ThresherException {
+        ArrayList<String> listOfWrong = new ArrayList<>();
+        if (checkMemory()) listOfWrong.add("Low RAM");
+
+        if(listOfWrong.size() != 0) throw new ThresherException(listOfWrong);
+    }
+
+    public boolean checkMemory() {
         RuntimeMXBean bean = ManagementFactory.getRuntimeMXBean();
         bean.getInputArguments().forEach(argument -> {
             if(argument.matches("-Xmx\\d\\w")) {
@@ -23,8 +33,6 @@ public class Checker {
                 }
             }
         });
-        if(maxMemory < Integer.parseInt(Settings.loadSetting("minimumDedicatedRAM"))*1e+6) {
-            System.out.println("Test");
-        }
+        return !(maxMemory < Integer.parseInt(Settings.loadSetting("minimumDedicatedRAM")) * 1e+6);
     }
 }
