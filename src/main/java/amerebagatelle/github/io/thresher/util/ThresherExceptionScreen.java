@@ -16,6 +16,10 @@ public class ThresherExceptionScreen extends Screen {
     public ThresherExceptionScreen(ArrayList<String> reasons) {
         super(new LiteralText("ThresherExceptionScreen"));
         this.reasons = reasons;
+        this.addButton(new ButtonWidget(this.width/2, this.height-15, 200, 20, "Turn off, I have been warned.", press -> {
+            Settings.writeSetting("thresherEnabled", "false");
+            this.minecraft.openScreen(new TitleScreen());
+        }));
     }
 
     @Override
@@ -30,10 +34,10 @@ public class ThresherExceptionScreen extends Screen {
 
     @Override
     public void render(int mouseX, int mouseY, float delta) {
-        super.render(mouseX, mouseY, delta);
         this.renderBackground();
         this.exceptionWidget.render(mouseX, mouseY, delta);
         this.drawCenteredString(this.font, "Thresher Exeption Thrown!", this.width/2, 10, 16777215);
         this.drawCenteredString(this.font, "The exception was thrown for the following reasons:", this.width/2, 30, 16777215);
+        super.render(mouseX, mouseY, delta);
     }
 }
