@@ -15,7 +15,6 @@ public class Settings {
 
                 if (fileCreated) {
                     Properties prop = new Properties();
-                    prop.setProperty("thresherEnabled", "true");
                     prop.setProperty("minimumDedicatedRAM", "4096");
 
                     BufferedWriter writer = new BufferedWriter(new FileWriter(settingsFile));
