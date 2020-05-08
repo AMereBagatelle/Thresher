@@ -16,7 +16,7 @@ public class ThresherExceptionWidget extends EntryListWidget<ThresherExceptionWi
 
     @Override
     public int getRowWidth() {
-        return this.width-10;
+        return this.minecraft.textRenderer.getStringWidth(this.reasons.get(0)[1]);
     }
 
     public class ExceptionEntry extends ThresherExceptionWidget.Entry {
@@ -32,7 +32,7 @@ public class ThresherExceptionWidget extends EntryListWidget<ThresherExceptionWi
         public void render(int index, int y, int x, int width, int height, int mouseX, int mouseY, boolean hovering, float delta) {
             int i = 0;
             for (String string : reason) {
-                ThresherExceptionWidget.this.minecraft.textRenderer.draw(string, x+5, y+i, 16777215);
+                ThresherExceptionWidget.this.minecraft.textRenderer.draw(string, x, y+i, 16777215);
                 i += 10;
             }
         }

@@ -22,8 +22,11 @@ public class ThresherExceptionScreen extends Screen {
     public void init(MinecraftClient client, int width, int height) {
         super.init(client, width, height);
         exceptionWidget = new ThresherExceptionWidget(this.minecraft, this.width, this.height, 40, this.height-70, 128, reasons, this);
-        this.addButton(new ButtonWidget(this.width/2-100, this.height-25, 200, 20, "Continue", press -> {
+        this.addButton(new ButtonWidget(this.width/2+10, this.height-25, 200, 20, "Continue", press -> {
             this.minecraft.openScreen(new ThresherExceptionConfirmationScreen(this));
+        }));
+        this.addButton(new ButtonWidget(this.width/2-210, this.height-25, 200, 20, "Quit Game", press -> {
+            this.minecraft.scheduleStop();
         }));
     }
 
@@ -32,9 +35,9 @@ public class ThresherExceptionScreen extends Screen {
         this.renderBackground();
         this.exceptionWidget.render(mouseX, mouseY, delta);
         this.drawCenteredString(this.font, "Your computer/settings do not meet the recommended specifications!", this.width/2, 15, 16777215);
-        this.drawCenteredString(this.font, "Click the button below to skip these warnings.", this.width/2, this.height-65, 16777215);
-        this.drawCenteredString(this.font, "THIS IS NOT RECOMMENDED.", this.width/2, this.height-55, 16711680);
-        this.drawCenteredString(this.font, "DO NOT REPORT ISSUES YOU ENCOUNTER TO THE MODPACK AUTHOR(S) IF YOU DO THIS.", this.width/2, this.height-45, 16711680);
+        this.drawCenteredString(this.font, "Click continue button below to skip these warnings.", this.width/2, this.height-60, 16777215);
+        this.drawCenteredString(this.font, "THIS IS NOT RECOMMENDED.", this.width/2, this.height-50, 16711680);
+        this.drawCenteredString(this.font, "DO NOT REPORT ISSUES YOU ENCOUNTER TO THE MODPACK AUTHOR(S) IF YOU CONTINUE.", this.width/2, this.height-40, 16711680);
         super.render(mouseX, mouseY, delta);
     }
 }
