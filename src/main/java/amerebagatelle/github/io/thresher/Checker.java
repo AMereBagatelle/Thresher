@@ -10,8 +10,12 @@ public class Checker {
     public long maxMemory;
 
     public void checkValues() throws ThresherException {
-        ArrayList<String> listOfWrong = new ArrayList<>();
-        if (checkMemory()) listOfWrong.add("Not enough RAM, you have " + maxMemory/1048576 + "MB and require more than " + Settings.loadSetting("minimumDedicatedRAM") + "MB, dedicate more RAM");
+        ArrayList<String[]> listOfWrong = new ArrayList<>();
+        if (checkMemory()) listOfWrong.add(new String[]{
+                "Not enough RAM.",
+                "The modpack author(s) recommended " + Settings.loadSetting("minimumDedicatedRAM") + "MB of RAM, but you have " + maxMemory/1048576 + "MB of RAM.",
+                "Please dedicate more RAM to Java."
+        });
 
         if(listOfWrong.size() != 0) throw new ThresherException(listOfWrong);
     }
