@@ -33,6 +33,6 @@ public class Checker {
                 }
             }
         });
-        return !(maxMemory < Integer.parseInt(Settings.loadSetting("minimumDedicatedRAM")) * 1e+6);
+        return (maxMemory < Integer.parseInt(Settings.loadSetting("minimumDedicatedRAM")) * 1e+6);
     }
 }
