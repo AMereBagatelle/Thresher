@@ -11,7 +11,7 @@ public class Checker {
 
     public void checkValues() throws ThresherException {
         ArrayList<String> listOfWrong = new ArrayList<>();
-        if (checkMemory()) listOfWrong.add("Low RAM");
+        if (checkMemory()) listOfWrong.add("Not enough RAM, you have " + maxMemory/1048576 + "MB and require more than " + Settings.loadSetting("minimumDedicatedRAM") + "MB, dedicate more RAM");
 
         if(listOfWrong.size() != 0) throw new ThresherException(listOfWrong);
     }
@@ -28,7 +28,7 @@ public class Checker {
                         break;
 
                     case 'M' :
-                        maxMemory = Character.getNumericValue(values[0]) * 1048576;
+                        maxMemory = Character.getNumericValue(values[0]) * (long)1048576;
                         break;
                 }
             }
