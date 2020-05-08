@@ -8,6 +8,5 @@ public class ThresherException extends Exception {
     public ThresherException(ArrayList<String> reasons) {
         super();
         this.reasons = reasons;
-        this.reasons.add("Test");
     }
 }
