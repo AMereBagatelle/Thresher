@@ -2,6 +2,7 @@ package amerebagatelle.github.io.thresher.util;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.widget.EntryListWidget;
+import net.minecraft.client.resource.language.I18n;
 
 import java.util.ArrayList;
 
@@ -17,6 +18,11 @@ public class ThresherExceptionWidget extends EntryListWidget<ThresherExceptionWi
     @Override
     public int getRowWidth() {
         return this.minecraft.textRenderer.getStringWidth(this.reasons.get(0)[1]);
+    }
+
+    @Override
+    protected int getScrollbarPosition() {
+        return this.width;
     }
 
     public class ExceptionEntry extends ThresherExceptionWidget.Entry {

@@ -15,10 +15,11 @@ public class Checker {
 
     public void checkValues() throws ThresherException {
         ArrayList<String[]> listOfWrong = new ArrayList<>();
+        // TODO: Find a better solution for this.  HARDCODING BAD
         if (checkMemory()) listOfWrong.add(new String[]{
-                I18n.translate("ramexception.line1"),
-                String.format(I18n.translate("ramexception.line2"), Settings.loadSetting("minimumDedicatedRAM"), maxMemory/1048576),
-                I18n.translate("ramexception.line3")
+                "Not enough RAM.",
+                "The modpack author(s) recommended " + Settings.loadSetting("minimumDedicatedRAM") + "MB of RAM, but you have " + maxMemory/1048576 + "MB of RAM.",
+                "Please dedicate more RAM to Java."
         });
 
         if(listOfWrong.size() != 0) throw new ThresherException(listOfWrong);
