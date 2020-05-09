@@ -12,7 +12,7 @@
     "sources": "https://github.com/AMereBagatelle/Thresher"
   },
   "license": "CC0-1.0",
-  "icon": "assets/thresher/icon.png",
+  "icon": "assets/thresher/Thresher_Logo.png",
   "environment": "*",
   "entrypoints": {
     "main": [
