@@ -1,0 +1,13 @@
+{
+  "settings.failCreate": "Could not create settings file for Thresher!",
+  "settings.failRead": "Can't read settings for Thresher!",
+  "ramexception.line1": "Not enough RAM.",
+  "ramexception.line2": "The modpack author(s) recommended %1$sMB of RAM, but you have %2$sMB of RAM.",
+  "ramexception.line3": "Please dedicate more RAM to Java.",
+  "exceptionscreen.top1": "Your computer/settings do not meet the recommended specifications!",
+  "exceptionscreen.bottom1": "Click continue button below to skip these warnings.",
+  "exceptionscreen.bottom2": "THIS IS NOT RECOMMENDED.",
+  "exceptionscreen.bottom3": "DO NOT REPORT ISSUES YOU ENCOUNTER TO THE MODPACK AUTHOR(S) IF YOU CONTINUE.",
+  "confirmationscreen.line1": "Do you really wish to ignore the warnings?",
+  "confirmationscreen.line2": "DO NOT REPORT ISSUES YOU ENCOUNTER TO THE MODPACK AUTHOR(S) IF YOU DO THIS."
+}

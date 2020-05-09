@@ -1,8 +1,13 @@
 package amerebagatelle.github.io.thresher;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.client.resource.language.I18n;
+
 import java.io.*;
 import java.util.Properties;
 
+@Environment(EnvType.CLIENT)
 public class Settings {
 
     public static File settingsFile = new File("config/thresher.properties");
@@ -25,7 +30,7 @@ public class Settings {
                     throw new IOException();
                 }
             } catch (IOException e) {
-                throw new RuntimeException("Could not create settings file for Thresher!");
+                throw new RuntimeException(I18n.translate("settings.failCreate"));
             }
         }
     }
@@ -41,7 +46,7 @@ public class Settings {
 
             return prop.getProperty(setting);
         } catch (IOException e) {
-            throw new RuntimeException("Can't read settings for Thresher!");
+            throw new RuntimeException(I18n.translate("settings.failRead"));
         }
     }
 
@@ -62,7 +67,7 @@ public class Settings {
             writer.flush();
             writer.close();
         } catch (IOException e) {
-            throw new RuntimeException("Can't read settings for Thresher!");
+            throw new RuntimeException(I18n.translate("settings.failRead"));
         }
     }
 }

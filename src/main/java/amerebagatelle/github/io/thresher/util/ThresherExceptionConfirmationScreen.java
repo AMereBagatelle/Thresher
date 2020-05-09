@@ -4,6 +4,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 
@@ -29,8 +30,8 @@ public class ThresherExceptionConfirmationScreen extends Screen {
     @Override
     public void render(int mouseX, int mouseY, float delta) {
         this.renderBackground();
-        this.drawCenteredString(this.font, "Do you really wish to ignore the warnings?", this.width/2, 20, 16777215);
-        this.drawCenteredString(this.font, "DO NOT REPORT ISSUES YOU ENCOUNTER TO THE MODPACK AUTHOR(S) IF YOU DO THIS.", this.width/2, 40, 16711680);
+        this.drawCenteredString(this.font, I18n.translate("confirmationscreen.line1"), this.width/2, 20, 16777215);
+        this.drawCenteredString(this.font, I18n.translate("confirmationscreen.line2"), this.width/2, 40, 16711680);
         super.render(mouseX, mouseY, delta);
     }
 }

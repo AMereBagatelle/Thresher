@@ -5,6 +5,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.LiteralText;
 
 import java.util.ArrayList;
@@ -34,10 +35,10 @@ public class ThresherExceptionScreen extends Screen {
     public void render(int mouseX, int mouseY, float delta) {
         this.renderBackground();
         this.exceptionWidget.render(mouseX, mouseY, delta);
-        this.drawCenteredString(this.font, "Your computer/settings do not meet the recommended specifications!", this.width/2, 15, 16777215);
-        this.drawCenteredString(this.font, "Click continue button below to skip these warnings.", this.width/2, this.height-60, 16777215);
-        this.drawCenteredString(this.font, "THIS IS NOT RECOMMENDED.", this.width/2, this.height-50, 16711680);
-        this.drawCenteredString(this.font, "DO NOT REPORT ISSUES YOU ENCOUNTER TO THE MODPACK AUTHOR(S) IF YOU CONTINUE.", this.width/2, this.height-40, 16711680);
+        this.drawCenteredString(this.font, I18n.translate("exceptionscreen.top1"), this.width/2, 15, 16777215);
+        this.drawCenteredString(this.font, I18n.translate("exceptionscreen.bottom1"), this.width/2, this.height-60, 16777215);
+        this.drawCenteredString(this.font, I18n.translate("exceptionscreen.bottom2"), this.width/2, this.height-50, 16711680);
+        this.drawCenteredString(this.font, I18n.translate("exceptionscreen.bottom3"), this.width/2, this.height-40, 16711680);
         super.render(mouseX, mouseY, delta);
     }
 }

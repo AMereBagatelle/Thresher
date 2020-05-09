@@ -1,20 +1,24 @@
 package amerebagatelle.github.io.thresher;
 
 import amerebagatelle.github.io.thresher.util.ThresherException;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.client.resource.language.I18n;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 import java.util.ArrayList;
 
+@Environment(EnvType.CLIENT)
 public class Checker {
     public long maxMemory;
 
     public void checkValues() throws ThresherException {
         ArrayList<String[]> listOfWrong = new ArrayList<>();
         if (checkMemory()) listOfWrong.add(new String[]{
-                "Not enough RAM.",
-                "The modpack author(s) recommended " + Settings.loadSetting("minimumDedicatedRAM") + "MB of RAM, but you have " + maxMemory/1048576 + "MB of RAM.",
-                "Please dedicate more RAM to Java."
+                I18n.translate("ramexception.line1"),
+                String.format(I18n.translate("ramexception.line2"), Settings.loadSetting("minimumDedicatedRAM"), maxMemory/1048576),
+                I18n.translate("ramexception.line3")
         });
 
         if(listOfWrong.size() != 0) throw new ThresherException(listOfWrong);
