@@ -18,7 +18,7 @@ public class Checker {
         // TODO: Find a better solution for this.  HARDCODING BAD
         if (checkMemory()) listOfWrong.add(new String[]{
                 "Not enough RAM.",
-                "The modpack author(s) recommended " + Settings.loadSetting("minimumDedicatedRAM") + "MB of RAM, but you have " + maxMemory/1048576 + "MB of RAM.",
+                "The modpack author(s) recommended " + Settings.loadSetting("minimumDedicatedRAM") + "MB of RAM, but you have " + (maxMemory == 0 ? "an unspecified " : Long.toString(maxMemory / 1048576)) + "MB of RAM.",
                 "Please dedicate more RAM to Java."
         });
 
