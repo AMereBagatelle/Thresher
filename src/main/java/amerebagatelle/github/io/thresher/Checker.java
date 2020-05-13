@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 @Environment(EnvType.CLIENT)
 public class Checker {
-    public long maxMemory;
+    public long maxMemory = 0;
 
     public void checkValues() throws ThresherException {
         ArrayList<String[]> listOfWrong = new ArrayList<>();
@@ -42,6 +42,9 @@ public class Checker {
                 }
             }
         });
+        if(maxMemory == 0) {
+            return true;
+        }
         return (maxMemory < Integer.parseInt(Settings.loadSetting("minimumDedicatedRAM")) * 1e+6);
     }
 }
