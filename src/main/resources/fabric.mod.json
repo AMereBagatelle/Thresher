@@ -15,7 +15,7 @@
   "icon": "assets/thresher/Thresher_Logo.png",
   "environment": "*",
   "entrypoints": {
-    "main": [
+    "client": [
       "amerebagatelle.github.io.thresher.Thresher"
     ]
   },

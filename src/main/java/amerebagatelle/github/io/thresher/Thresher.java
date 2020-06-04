@@ -1,16 +1,20 @@
 package amerebagatelle.github.io.thresher;
 
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.server.ServerStartCallback;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 
-public class Thresher implements ModInitializer {
+@Environment(EnvType.CLIENT)
+public class Thresher implements ClientModInitializer {
     public static final Checker checker = new Checker();
 
     @Override
-    public void onInitialize() {
+    public void onInitializeClient() {
         Settings.initSettings();
     }
 }

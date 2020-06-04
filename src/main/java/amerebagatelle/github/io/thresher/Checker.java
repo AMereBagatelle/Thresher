@@ -9,6 +9,11 @@ import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 import java.util.ArrayList;
 
+import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL15.*;
+import static org.lwjgl.opengl.GL20.*;
+import static org.lwjgl.opengl.GL30.*;
+
 @Environment(EnvType.CLIENT)
 public class Checker {
     public long maxMemory = 0;
@@ -20,6 +25,11 @@ public class Checker {
                 "Not enough RAM.",
                 "The modpack author(s) recommended " + Settings.loadSetting("minimumDedicatedRAM") + "MB of RAM, but you have " + (maxMemory == 0 ? "an unspecified " : Long.toString(maxMemory / 1048576)) + "MB of RAM.",
                 "Please dedicate more RAM to Java."
+        });
+        if (checkOpenGL()) listOfWrong.add(new String[]{
+                "OpenGL version is outdated.",
+                "The modpack author(s) recommended OpenGL " + Settings.loadSetting("minimumOpenGL") + ", but you have OpenGL " + Integer.parseInt(glGetString(GL_VERSION).substring(0, 1)) + ".",
+                "Please update OpenGL if possible.  If not updated you may encounter crashes while playing."
         });
 
         if(listOfWrong.size() != 0) throw new ThresherException(listOfWrong);
@@ -46,5 +56,13 @@ public class Checker {
             return true;
         }
         return (maxMemory < Integer.parseInt(Settings.loadSetting("minimumDedicatedRAM")) * 1e+6);
+    }
+
+    public boolean checkOpenGL() {
+        int glVersion = Integer.parseInt(glGetString(GL_VERSION).substring(0, 1));
+        if(glVersion <= Integer.parseInt(Settings.loadSetting("minimumOpenGL"))) {
+            return true;
+        }
+        return false;
     }
 }

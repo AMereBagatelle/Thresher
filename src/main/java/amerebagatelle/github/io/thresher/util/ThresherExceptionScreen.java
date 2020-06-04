@@ -22,7 +22,7 @@ public class ThresherExceptionScreen extends Screen {
     @Override
     public void init(MinecraftClient client, int width, int height) {
         super.init(client, width, height);
-        exceptionWidget = new ThresherExceptionWidget(this.minecraft, this.width, this.height, 40, this.height-70, 128, reasons, this);
+        exceptionWidget = new ThresherExceptionWidget(this.minecraft, this.width, this.height, 40, this.height-70, 48, reasons, this);
         this.addButton(new ButtonWidget(this.width/2+10, this.height-25, 200, 20, "Continue", press -> {
             this.minecraft.openScreen(new ThresherExceptionConfirmationScreen(this));
         }));
