@@ -21,7 +21,7 @@ public class Settings {
                 if (fileCreated) {
                     Properties prop = new Properties();
                     prop.setProperty("minimumDedicatedRAM", "4096");
-                    prop.setProperty("minimumOpenGL", "4");
+                    prop.setProperty("minimumOpenGL", "2");
 
                     BufferedWriter writer = new BufferedWriter(new FileWriter(settingsFile));
                     prop.store(writer, null);

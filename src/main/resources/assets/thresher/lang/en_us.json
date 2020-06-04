@@ -1,6 +1,6 @@
 {
   "settings.failCreate": "Could not create settings file for Thresher!",
-  "settings.failRead": "Can't read settings for Thresher!",
+  "settings.failRead": "Can't read settings for Thresher!  Try deleting the config file.",
   "ramexception.line1": "Not enough RAM.",
   "ramexception.line2": "The modpack author(s) recommended %1$sMB of RAM, but you have %2$sMB of RAM.",
   "ramexception.line3": "Please dedicate more RAM to Java.",
